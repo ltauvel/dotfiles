@@ -1,0 +1,97 @@
+" Plug (vim-plug) - plugin manager
+" https://github.com/junegunn/vim-plug
+" Basically: after adding a plug, just remember to run 'PlugInstall'
+" This is best with neovim!
+" https://neovim.io/
+" http://nerditya.com/code/guide-to-neovim/
+" Other helpful links:
+" http://learnvimscriptthehardway.stevelosh.com/
+" http://andrewradev.com/2011/08/06/making-vim-pretty-with-custom-colors/
+" =====================================
+call plug#begin('~/.vim/plugged')
+" -------------------------------------
+
+" Themes"
+Plug 'altercation/vim-colors-solarized'
+
+" vim-polyglot
+" Many language syntax highlight
+" https://github.com/sheerun/vim-polyglot
+Plug 'sheerun/vim-polyglot'
+
+" NERD Tree - tree explorer
+" https://github.com/scrooloose/nerdtree
+" http://usevim.com/2012/07/18/nerdtree/
+" (loaded on first invocation of the command)
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" vim-airline
+" Enhanced statusline
+" https://github.com/vim-airline/vim-airline
+Plug 'vim-airline/vim-airline'
+" https://github.com/vim-airline/vim-airline-themes
+Plug 'vim-airline/vim-airline-themes'
+
+" seamlessly navigation between vim and tmux
+" https://github.com/christoomey/vim-tmux-navigator
+Plug 'christoomey/vim-tmux-navigator'
+
+" -------------------------------------
+" Add plugins to &runtimepath
+call plug#end()
+" =====================================
+
+" Auto start NERD tree when opening a directory
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
+
+" Auto start NERD tree if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'NERDTree' | endif
+
+" Let quit work as expected if after entering :q the only window left open is NERD Tree itself
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+" =====================================
+" Initial settings
+" =====================================
+
+" Relax file compatibility restriction with original vi
+" (not necessary to set with neovim, but useful for vim)
+set nocompatible
+
+"disable showmode since using vim-airline; otherwise use 'set showmode'
+set noshowmode
+
+" highlight matches when searching
+" Use C-l to clear (see key map section)
+set hlsearch
+
+" enable line and column display
+set ruler
+
+" Display line numbers"
+set number
+
+" file type recognition
+filetype on
+filetype plugin on
+filetype indent on
+
+" syntax highlighting
+syntax on
+
+
+" =====================================
+" vim-airline status
+" configure: https://github.com/vim-airline/vim-airline#user-content-extensible-pipeline
+" =====================================
+let g:airline_powerline_fonts = 1
+
+" show buffers (if only one tab)
+let g:airline#extensions#tabline#enabled = 1
+
+" =====================================
+" Theme settings
+" =====================================
+source $HOME/.vim-colors
