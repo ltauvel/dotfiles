@@ -2,7 +2,7 @@
 
 # MODE: workstation
 # PLATEFORM: mac
-# PRIORITY : 0
+# PRIORITY : 2
 
 # Installing git
 pkg install coreutils -y

@@ -2,7 +2,7 @@
 
 # MODE: workstation
 # PLATEFORM: all
-# PRIORITY: 0
+# PRIORITY: 1
 
 # Installing git
 pkg install git -y

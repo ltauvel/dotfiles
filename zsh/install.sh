@@ -2,7 +2,7 @@
 
 # MODE: workstation
 # PLATEFORM: all
-# PRIORITY: 1
+# PRIORITY: 2
 
 # Installing zsh
 pkg install zsh -y
