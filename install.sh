@@ -28,4 +28,4 @@ done
 # Reloading
 source $HOME/.aliases
 source $HOME/.functions
-settheme dark
+settheme solarized-dark

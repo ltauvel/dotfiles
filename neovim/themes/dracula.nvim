@@ -1,0 +1,14 @@
+set t_Co=256
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+set background=dark
+silent! colorscheme dracula
+silent! let g:airline_theme = "dracula"
+
+" users simply had to include set termguicolors in their vimrc to get true
+" colors in the terminal– the one caveat being that it has to be a terminal 
+" like iTerm2 that also supports “true colors”.
+" gui colors if running iTerm
+if $TERM_PROGRAM =~ "iTerm"
+  set termguicolors
+endif

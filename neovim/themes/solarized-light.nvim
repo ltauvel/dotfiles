@@ -1,5 +1,4 @@
 set t_Co=256
-syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
 set termguicolors
 set background=light

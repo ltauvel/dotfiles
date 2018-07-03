@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 " Themes"
 Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " vim-polyglot
 " Many language syntax highlight
@@ -80,6 +81,7 @@ filetype indent on
 
 " syntax highlighting
 syntax on
+syntax enable
 
 
 " =====================================
