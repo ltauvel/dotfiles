@@ -83,6 +83,8 @@ filetype indent on
 syntax on
 syntax enable
 
+" enable mouse
+set mouse=a
 
 " =====================================
 " vim-airline status
